@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+//import 'package:pie_chart/pie_chart.dart';
 import 'popup.dart';
 import 'notifications.dart';
 import 'donate.dart';
-import 'home.dart';
-//import 'package:pie_chart/pie_chart.dart';
+import 'home2.dart';
+//import 'package:syncfusion_flutter_charts/charts.dart';
 
 const int f = 1;
+const String money = "Details of fund used";
 
-class Home2 extends StatelessWidget {
-  const Home2({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class MyApppp extends StatelessWidget {
+  const MyApppp({Key? key}) : super(key: key);
 
   get bottomNavigationBar => null;
 
@@ -31,7 +34,7 @@ class Home2 extends StatelessWidget {
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => const MyApp()),
+                      MaterialPageRoute(builder: (context) => const MyApppp()),
                     );
                   },
                   icon: const Icon(
@@ -166,14 +169,7 @@ class Home2 extends StatelessWidget {
                                     child: Row(
                                       children: [
                                         IconButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const MyApp()),
-                                              );
-                                            },
+                                            onPressed: () {},
                                             icon: const Icon(
                                               Icons.arrow_back_ios,
                                               color: Colors.grey,
@@ -191,19 +187,26 @@ class Home2 extends StatelessWidget {
                                               image: const DecorationImage(
                                                 fit: BoxFit.contain,
                                                 image: AssetImage(
-                                                    "images/smile.jpg"),
+                                                    "images/stc.jpg"),
                                               )),
                                         ),
                                         const Spacer(),
                                         const Text(
-                                          "Smile\nFoundation",
+                                          "Save the \nChildren",
                                           style: TextStyle(
                                               fontSize: 30,
                                               fontWeight: FontWeight.bold),
                                         ),
                                         const Spacer(),
                                         IconButton(
-                                            onPressed: () {},
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        const Home2()),
+                                              );
+                                            },
                                             icon: const Icon(
                                               Icons.arrow_forward_ios,
                                               color: Colors.grey,
@@ -308,7 +311,7 @@ class Home2 extends StatelessWidget {
                                         Align(
                                           alignment: Alignment.topCenter,
                                           child: Text(
-                                            "10000",
+                                            "27500",
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 23,
@@ -322,7 +325,7 @@ class Home2 extends StatelessWidget {
                                         Align(
                                           alignment: Alignment.topCenter,
                                           child: Text(
-                                            "10000",
+                                            "52000",
                                             style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontSize: 23,
@@ -352,7 +355,7 @@ class Home2 extends StatelessWidget {
                                   children: [
                                     Container(
                                       height: 18,
-                                      width: 130,
+                                      width: 65,
                                       margin: const EdgeInsets.only(left: 1),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
@@ -362,7 +365,7 @@ class Home2 extends StatelessWidget {
                                     const Spacer(),
                                     Container(
                                       height: 18,
-                                      width: 130,
+                                      width: 195,
                                       margin: const EdgeInsets.only(right: 1),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
@@ -379,7 +382,7 @@ class Home2 extends StatelessWidget {
                                     fontSize: 25, fontWeight: FontWeight.bold),
                               ),
                               const Text(
-                                "20,000 INR",
+                                "80,000 INR",
                                 style: TextStyle(fontSize: 22),
                               ),
                               const Spacer(
@@ -391,40 +394,28 @@ class Home2 extends StatelessWidget {
                       ),
                       const Spacer(),
                       const Text(
-                        "Details of fund used",
+                        money,
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Spacer(),
-                      Align(
+                      const Spacer(),
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
-                          "     Food                                                                   71%",
+                        child: Text(
+                          "     Transport                                                           11%",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
                       ),
-                      Spacer(),
-                      Align(
+                      const Spacer(),
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
-                          "     Education                                                           22%",
-                          style: TextStyle(
-                            fontSize: 20,
-                            fontWeight: FontWeight.normal,
-                          ),
-                        ),
-                      ),
-
-                      Spacer(),
-                      Align(
-                        alignment: Alignment.centerLeft,
-                        child: const Text(
-                          "     Transport                                                           03%",
+                        child: Text(
+                          "     Administration                                                  07%",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
@@ -432,11 +423,11 @@ class Home2 extends StatelessWidget {
                         ),
                       ),
 
-                      Spacer(),
-                      Align(
+                      const Spacer(),
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
-                          "     Administration                                                   01%",
+                        child: Text(
+                          "     Education                                                           42%",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
@@ -444,20 +435,32 @@ class Home2 extends StatelessWidget {
                         ),
                       ),
 
-                      Spacer(),
-                      Align(
+                      const Spacer(),
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
-                          "     Events                                                                 03%",
+                        child: Text(
+                          "     Child welfare                                                     32%",
                           style: TextStyle(
                             fontSize: 20,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
                       ),
-                      Spacer(),
-                      Spacer(),
-                      Spacer(),
+
+                      const Spacer(),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          "     Food                                                                   08%",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      const Spacer(),
+                      const Spacer(),
                     ],
                   ),
                 )),

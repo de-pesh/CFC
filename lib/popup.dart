@@ -68,7 +68,8 @@ class NavDrawer extends StatelessWidget {
         ),
         body: Drawer(
           child: ListView(
-            padding: EdgeInsets.zero,
+            padding:
+                const EdgeInsets.only(right: 0, left: 0, top: 50, bottom: 0),
             children: <Widget>[
               const DrawerHeader(
                 child: Text(
@@ -76,34 +77,49 @@ class NavDrawer extends StatelessWidget {
                   style: TextStyle(color: Colors.white, fontSize: 25),
                 ),
                 decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: Colors.lightGreen,
                     image: DecorationImage(
                         fit: BoxFit.contain,
                         image: AssetImage('images/ankit.jpg'))),
               ),
               ListTile(
                 leading: const Icon(Icons.input),
-                title: const Text('Welcome'),
+                title: const Text(
+                  'Welcome',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 onTap: () => {},
               ),
               ListTile(
                 leading: const Icon(Icons.verified_user),
-                title: const Text('Profile'),
+                title: const Text(
+                  'Profile',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 onTap: () => {Navigator.of(context).pop()},
               ),
               ListTile(
                 leading: const Icon(Icons.settings),
-                title: const Text('Settings'),
+                title: const Text(
+                  'Settings',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 onTap: () => {Navigator.of(context).pop()},
               ),
               ListTile(
                 leading: const Icon(Icons.border_color),
-                title: const Text('Feedback'),
+                title: const Text(
+                  'Feedback',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 onTap: () => {Navigator.of(context).pop()},
               ),
               ListTile(
                 leading: const Icon(Icons.exit_to_app),
-                title: const Text('Logout'),
+                title: const Text(
+                  'Logout',
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
                 onTap: () => {Navigator.of(context).pop()},
               ),
             ],

@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+//import 'package:pie_chart/pie_chart.dart';
 import 'popup.dart';
 import 'notifications.dart';
 import 'donate.dart';
 import 'home2.dart';
+//import 'package:syncfusion_flutter_charts/charts.dart';
 
 const int f = 1;
+const String money = "Details of fund used";
 
+// ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -100,7 +104,7 @@ class MyApp extends StatelessWidget {
                             height: 290,
                             width: 400,
                             margin: const EdgeInsets.only(
-                                right: 20, left: 20, top: 40),
+                                right: 20, left: 20, top: 50),
                             decoration: BoxDecoration(
                                 border: Border.all(
                                   color: Colors.black,
@@ -390,19 +394,73 @@ class MyApp extends StatelessWidget {
                       ),
                       const Spacer(),
                       const Text(
-                        "Details of your fund used",
+                        money,
                         style: TextStyle(
                           fontSize: 25,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      Row(
-                        children: [
-                          Container(),
-                        ],
+                      const Spacer(),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: const Text(
+                          "     Transport                                                           11%",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: const Text(
+                          "     Administration                                                  07%",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
                       ),
 
-                      const Spacer(),
+                      Spacer(),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: const Text(
+                          "     Education                                                           42%",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ),
+
+                      Spacer(),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: const Text(
+                          "     Child welfare                                                     32%",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ),
+
+                      Spacer(),
+                      Align(
+                        alignment: Alignment.centerLeft,
+                        child: const Text(
+                          "     Food                                                                   08%",
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ),
+                      Spacer(),
+                      Spacer(),
+                      Spacer(),
                     ],
                   ),
                 )),
