@@ -10,9 +10,14 @@ const int f = 1;
 const String money = "Details of fund used";
 
 // ignore: must_be_immutable
-class MyApppp extends StatelessWidget {
+class MyApppp extends StatefulWidget {
   const MyApppp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApppp> createState() => _MyAppppState();
+}
+
+class _MyAppppState extends State<MyApppp> {
   get bottomNavigationBar => null;
 
   @override

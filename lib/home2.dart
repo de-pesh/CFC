@@ -7,9 +7,14 @@ import 'home.dart';
 
 const int f = 1;
 
-class Home2 extends StatelessWidget {
+class Home2 extends StatefulWidget {
   const Home2({Key? key}) : super(key: key);
 
+  @override
+  State<Home2> createState() => _Home2State();
+}
+
+class _Home2State extends State<Home2> {
   get bottomNavigationBar => null;
 
   @override

@@ -10,9 +10,14 @@ const int f = 1;
 const String money = "Details of fund used";
 
 // ignore: must_be_immutable
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   get bottomNavigationBar => null;
 
   @override
@@ -245,7 +250,7 @@ class MyApp extends StatelessWidget {
                                 left: 0,
                                 child: Container(
                                     height: 40,
-                                    width: 360,
+                                    width: 370,
                                     margin: const EdgeInsets.symmetric(
                                         horizontal: 50),
                                     decoration: BoxDecoration(
@@ -355,7 +360,7 @@ class MyApp extends StatelessWidget {
                                   children: [
                                     Container(
                                       height: 18,
-                                      width: 65,
+                                      width: 78,
                                       margin: const EdgeInsets.only(left: 1),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
@@ -365,7 +370,7 @@ class MyApp extends StatelessWidget {
                                     const Spacer(),
                                     Container(
                                       height: 18,
-                                      width: 195,
+                                      width: 208,
                                       margin: const EdgeInsets.only(right: 1),
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(20),
@@ -401,9 +406,9 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
+                        child: Text(
                           "     Transport                                                           11%",
                           style: TextStyle(
                             fontSize: 20,
@@ -412,9 +417,9 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
                       const Spacer(),
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
+                        child: Text(
                           "     Administration                                                  07%",
                           style: TextStyle(
                             fontSize: 20,
@@ -423,10 +428,10 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
 
-                      Spacer(),
-                      Align(
+                      const Spacer(),
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
+                        child: Text(
                           "     Education                                                           42%",
                           style: TextStyle(
                             fontSize: 20,
@@ -436,9 +441,9 @@ class MyApp extends StatelessWidget {
                       ),
 
                       Spacer(),
-                      Align(
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
+                        child: Text(
                           "     Child welfare                                                     32%",
                           style: TextStyle(
                             fontSize: 20,
@@ -447,10 +452,10 @@ class MyApp extends StatelessWidget {
                         ),
                       ),
 
-                      Spacer(),
-                      Align(
+                      const Spacer(),
+                      const Align(
                         alignment: Alignment.centerLeft,
-                        child: const Text(
+                        child: Text(
                           "     Food                                                                   08%",
                           style: TextStyle(
                             fontSize: 20,

@@ -6,9 +6,17 @@ import 'popup.dart';
 import 'donate.dart';
 import 'update_home.dart';
 
-class Donated extends StatelessWidget {
+int a = 0, b = 0, c = 0;
+int d = 1, e = 1, f = 1;
+
+class Donated extends StatefulWidget {
   const Donated({Key? key}) : super(key: key);
 
+  @override
+  State<Donated> createState() => _DonatedState();
+}
+
+class _DonatedState extends State<Donated> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -142,7 +150,7 @@ class Donated extends StatelessWidget {
                             right: 0,
                             left: 0,
                             child: Container(
-                              height: 400,
+                              height: 500,
                               width: 380,
                               margin: const EdgeInsets.only(
                                   left: 15, right: 15, bottom: 15),
@@ -215,6 +223,48 @@ class Donated extends StatelessWidget {
                                       ),
                                       obscureText: true,
                                     ),
+                                  ),
+                                  RadioListTile(
+                                    title: const Text('Health'),
+                                    value: a,
+                                    groupValue: d,
+                                    onChanged: (selected) {
+                                      setState(() {
+                                        b = 0;
+                                        e = 1;
+                                        c = 0;
+                                        f = 1;
+                                        a = d;
+                                      });
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    title: const Text('Welfare'),
+                                    value: b,
+                                    groupValue: e,
+                                    onChanged: (selected) {
+                                      setState(() {
+                                        a = 0;
+                                        d = 1;
+                                        c = 0;
+                                        f = 1;
+                                        b = e;
+                                      });
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    title: const Text('Education'),
+                                    value: c,
+                                    groupValue: f,
+                                    onChanged: (selected) {
+                                      setState(() {
+                                        a = 0;
+                                        d = 1;
+                                        b = 0;
+                                        e = 1;
+                                        c = f;
+                                      });
+                                    },
                                   ),
                                   const Spacer(),
                                   Positioned(

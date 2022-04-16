@@ -1,13 +1,40 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:flutter/material.dart';
-//import 'package:proj_cfc/home2.dart';
+import 'package:http/http.dart';
+import 'package:proj_cfc/utils/constants.dart';
+import 'package:web3dart/web3dart.dart';
 import 'home.dart';
 import 'notifications.dart';
 import 'popup.dart';
 import 'donate.dart';
 import 'donated.dart';
+import 'functions.dart';
+import 'utils/constants.dart';
 
-class Donation extends StatelessWidget {
+class Donation extends StatefulWidget {
   const Donation({Key? key}) : super(key: key);
+
+  @override
+  State<Donation> createState() => _DonationState();
+}
+
+int a = 0, b = 0, c = 0;
+int d = 1, e = 1, f = 1;
+
+class _DonationState extends State<Donation> {
+  Client? httpClient;
+  Web3Client? ethClient;
+  TextEditingController controller = TextEditingController();
+
+  set groupValue(groupValue) {}
+
+  @override
+  void initState() {
+    httpClient = Client();
+    ethClient = Web3Client(infura_url, httpClient!);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +168,7 @@ class Donation extends StatelessWidget {
                             right: 0,
                             left: 0,
                             child: Container(
-                              height: 400,
+                              height: 500,
                               width: 380,
                               margin: const EdgeInsets.only(
                                   left: 15, right: 15, bottom: 15),
@@ -155,7 +182,7 @@ class Donation extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(25)),
                               child: Column(
                                 children: [
-                                  const Spacer(),
+                                  //const Spacer(),
                                   Container(
                                     width: 50,
                                     height: 50,
@@ -171,7 +198,7 @@ class Donation extends StatelessWidget {
                                           image: AssetImage("images/stc.jpg"),
                                         )),
                                   ),
-                                  const Spacer(),
+                                  //const Spacer(),
                                   const Text(
                                     "Enter Amount you want to donate  ",
                                     textAlign: TextAlign.left,
@@ -179,11 +206,12 @@ class Donation extends StatelessWidget {
                                         fontSize: 20,
                                         fontWeight: FontWeight.normal),
                                   ),
-                                  const Padding(
-                                    padding: EdgeInsets.all(15),
+                                  Padding(
+                                    padding: const EdgeInsets.all(15),
                                     child: TextField(
+                                      controller: controller,
                                       textAlign: TextAlign.center,
-                                      decoration: InputDecoration(
+                                      decoration: const InputDecoration(
                                         border: OutlineInputBorder(),
                                         hintText: "Amount",
                                         fillColor: Colors.white,
@@ -193,7 +221,7 @@ class Donation extends StatelessWidget {
                                       keyboardType: TextInputType.number,
                                     ),
                                   ),
-                                  const Spacer(),
+                                  // const Spacer(),
                                   const Text(
                                     "Enter your password       ",
                                     textAlign: TextAlign.left,
@@ -215,9 +243,51 @@ class Donation extends StatelessWidget {
                                       obscureText: true,
                                     ),
                                   ),
+                                  RadioListTile(
+                                    title: const Text('Health'),
+                                    value: a,
+                                    groupValue: d,
+                                    onChanged: (selected) {
+                                      setState(() {
+                                        b = 0;
+                                        e = 1;
+                                        c = 0;
+                                        f = 1;
+                                        a = d;
+                                      });
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    title: const Text('Welfare'),
+                                    value: b,
+                                    groupValue: e,
+                                    onChanged: (selected) {
+                                      setState(() {
+                                        a = 0;
+                                        d = 1;
+                                        c = 0;
+                                        f = 1;
+                                        b = e;
+                                      });
+                                    },
+                                  ),
+                                  RadioListTile(
+                                    title: const Text('Education'),
+                                    value: c,
+                                    groupValue: f,
+                                    onChanged: (selected) {
+                                      setState(() {
+                                        a = 0;
+                                        d = 1;
+                                        b = 0;
+                                        e = 1;
+                                        c = f;
+                                      });
+                                    },
+                                  ),
                                   const Spacer(),
                                   Positioned(
-                                    top: 200,
+                                    top: 300,
                                     right: 0,
                                     left: 0,
                                     child: Container(
@@ -273,13 +343,26 @@ class Donation extends StatelessWidget {
                                           ),
                                           const Spacer(),
                                           GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        const MyApp()),
-                                              );
+                                            onTap: () async {
+                                              if (controller.text.length > 0) {
+                                                var money =
+                                                    int.parse(controller.text);
+                                                await AddDoner(
+                                                    "Ankit", ethClient!);
+                                                await AddOrg(
+                                                    "Save The Children",
+                                                    ethClient!);
+                                                await Addmoney(
+                                                    100000, ethClient!);
+                                                await Donatemoney(
+                                                    money, ethClient!);
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          const MyApp()),
+                                                );
+                                              }
                                             },
                                             child: Container(
                                                 width: 100,

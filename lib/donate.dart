@@ -1,12 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
+import 'package:web3dart/web3dart.dart';
 import 'home.dart';
 import 'notifications.dart';
 import 'popup.dart';
 import 'donation.dart';
+import "utils/constants.dart";
 
-class Donate extends StatelessWidget {
+class Donate extends StatefulWidget {
   const Donate({Key? key}) : super(key: key);
 
+  @override
+  State<Donate> createState() => _DonateState();
+}
+
+class _DonateState extends State<Donate> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,9 +25,7 @@ class Donate extends StatelessWidget {
             elevation: 0,
             child: Row(
               children: [
-                const Spacer(
-                  flex: f,
-                ),
+                const Spacer(),
                 IconButton(
                     onPressed: () {
                       Navigator.push(
