@@ -1,6 +1,6 @@
 # proj_cfc
 
-A new Flutter project.
+A Flutter project for charity application.
 
 ## Getting Started
 
